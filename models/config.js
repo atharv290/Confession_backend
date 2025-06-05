@@ -1,3 +1,8 @@
 const mongoose = require("mongoose");
-mongoose.set('strictQuery', true);
-mongoose.connect("mongodb://localhost:27017/Testing");
+
+
+// New Atlas connection
+mongoose.connect('mongodb+srv://atharvj938:k38BFXQuNzbQgeER@testing.qobmaei.mongodb.net/?retryWrites=true&w=majority&appName=testing', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
