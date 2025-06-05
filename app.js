@@ -16,6 +16,8 @@ app.use(cookieParser());
 app.use(cors({
   origin: "https://confession-frontend.vercel.app", // or the actual domain of your frontend
   credentials: true               // allows cookies to be sent
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
 app.post('/logout', (req, res) => {
   res.clearCookie('Tokan'); // Clear the JWT cookie
