@@ -22,16 +22,16 @@ router.post("/login", async (req, res) => {
       if (result) {
 
         res.cookie("Email", name, {
-          httpOnly: false, // set to true in production
-          secure: false, // set to true if using HTTPS
-          sameSite: "Lax", // or 'None' if needed across domains
+          httpOnly: true, // set to true in production
+          secure: true, // set to true if using HTTPS
+          sameSite: "none", // or 'None' if needed across domains
           maxAge: 24 * 60 * 60 * 1000
         });
         const token = jwt.sign(name,"Atharva");
         res.cookie("Tokan", token, {
-          httpOnly: false, // set to true in production
-          secure: false, // set to true if using HTTPS
-          sameSite: "Lax", // or 'None' if needed across domains
+          httpOnly: true, // set to true in production
+          secure: true, // set to true if using HTTPS
+          sameSite: "none", // or 'None' if needed across domains
           maxAge: 24 * 60 * 60 * 1000
         });
         res.send({ val: "Logged Sucessfully....." });
