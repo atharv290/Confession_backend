@@ -13,12 +13,14 @@ const SECRET_KEY = "your-secret-key"; // use env vars in production
 const saltRounds = 10;
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({
-  origin: "https://confession-frontend.vercel.app", // or the actual domain of your frontend
-  credentials: true               // allows cookies to be sent
+const corsOptions = {
+  origin: "https://confession-frontend.vercel.app",
+  credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"]
-}));
+  allowedHeaders: ["Content-Type"]
+};
+app.use(cors(corsOptions));
+
 app.post('/logout', (req, res) => {
   res.clearCookie('Tokan'); // Clear the JWT cookie
   res.json({ message: 'Logged out successfully' });
