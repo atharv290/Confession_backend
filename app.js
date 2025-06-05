@@ -14,7 +14,7 @@ const saltRounds = 10;
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-  origin: "http://localhost:3000", // or the actual domain of your frontend
+  origin: "https://confession-frontend.vercel.app", // or the actual domain of your frontend
   credentials: true               // allows cookies to be sent
 }));
 app.post('/logout', (req, res) => {
